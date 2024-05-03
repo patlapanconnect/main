@@ -9,6 +9,17 @@ function playM3u8(url){
       hls.attachMedia(video);
       hls.on(Hls.Events.MANIFEST_PARSED,function() {
         video.play();
+        // Menambahkan level kualitas
+        hls.levels.forEach((level, index) => {
+          var qualityOption = document.createElement('option');
+          qualityOption.textContent = level.height + 'p'; // Menampilkan resolusi sebagai label
+          qualityOption.value = index; // Indeks level akan menjadi nilai
+          document.getElementById('quality-selector').appendChild(qualityOption);
+        });
+        // Mendengarkan perubahan seleksi kualitas
+        document.getElementById('quality-selector').addEventListener('change', function() {
+          hls.currentLevel = parseInt(this.value);
+        });
       });
       document.title = originalTitle;
     }
