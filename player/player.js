@@ -10,7 +10,7 @@ function playM3u8(url){
       hls.on(Hls.Events.MANIFEST_PARSED,function() {
         video.play();
       });
-      document.title = url
+      document.title = originalTitle;
     }
 	else if (video.canPlayType('application/vnd.apple.mpegurl')) {
 		video.src = url;
@@ -18,7 +18,7 @@ function playM3u8(url){
 		  video.play();
 		});
 		video.volume = 0.3;
-		document.title = url;
+		document.title = originalTitle;
   	}
 }
 
