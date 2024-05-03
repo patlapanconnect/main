@@ -1,5 +1,5 @@
 var video = document.getElementById('video');
-var originalTitle = document.title;
+
 function playM3u8(url){
   if(Hls.isSupported()) {
       video.volume = 0.3;
