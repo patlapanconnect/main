@@ -21,7 +21,9 @@ function playM3u8(url){
           hls.currentLevel = parseInt(this.value);
         });
       });
-      document.title = url;
+      // Tambahkan tanggal saat ini ke judul
+      var currentDate = new Date();
+      document.title = document.title + " - " + currentDate.toLocaleDateString();
     }
 	else if (video.canPlayType('application/vnd.apple.mpegurl')) {
 		video.src = url;
@@ -29,7 +31,9 @@ function playM3u8(url){
 		  video.play();
 		});
 		video.volume = 0.3;
-		document.title = url;
+		// Tambahkan tanggal saat ini ke judul
+		var currentDate = new Date();
+		document.title = document.title + " - " + currentDate.toLocaleDateString();
   	}
 }
 
