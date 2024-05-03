@@ -12,33 +12,64 @@
   <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
   <script src="mousetrap.min.js" charset="utf-8"></script>
   <style>
-    body{
-      background-color:black;
+    body {
+        background: url('https://telegra.ph/file/bda73b8618917cef1205e.jpg') no-repeat center center fixed; /* Theatre Background Vectors by Vecteezy "https://www.vecteezy.com/free-vector/theatre-background" */
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
     }
-
-      .container-fluid {
+    /* Center the video and quality selector */
+    .centered {
+        width: 80%;
+        max-width: 100%;
+        margin-top: 50px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    #video {
+        width: 80%;
+        height: auto;
+        border: 10px solid #000;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+        margin: 50px auto; margin-bottom: 20px;
+        display: block;
+        background: #000;
+    }
+    .controls-wrapper {
         display: flex;
-        justify-content: center;
         align-items: center;
-        height: 100vh;
-        flex-direction: column;
-      }
-
-    #video-container {
-        position: relative;
-      }
-      
-    #video{
-      position: relative;
-      top: 0px;
-      right: 0px;
-      bottom: 0px;
-      left: 0px;
-      margin: auto;
-      max-height: 100%;
-      max-width: 100%;
+        justify-content: center;
+        margin-top: 20px; /* Space between video and controls */
+        margin-bottom: 20px;
     }
-  </style>
+    #quality {
+        width: 100px;
+        height: 30px;
+        border: none;
+        padding: 5px;
+        background: #1c1c1c;
+        color: #fff;
+        font-size: 16px;
+        border-radius: 5px;
+        display: block;
+        margin-top: 20px; /* Space between video and selector */
+        margin-bottom: 20px;
+    }
+    #contactMe {
+        font-size: 16px;
+        padding: 5px 10px;
+        margin-left: 10px; /* Space between quality selector and button */
+        background: #1c1c1c;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+</style>
     </head>
 <body>
     <div class="container-fluid h-100 d-flex flex-column justify-content-center align-items-center">
