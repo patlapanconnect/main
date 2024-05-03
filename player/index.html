@@ -5,6 +5,7 @@
         <title>48CONNECT | Stream</title>
         <!-- Favicon -->
         <link rel="icon" href="https://avatars.githubusercontent.com/u/167672208?v=4" type="image/x-icon" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
     <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -72,11 +73,21 @@
 </style>
     </head>
 <body>
-    <div class="container-fluid h-100 d-flex flex-column justify-content-center align-items-center">
-        <div id="video-container" class="mb-4">
-          <video id="video" class="w-100" controls style="height: 80vh; max-height: calc(100vw * 9 / 16);"></video>    
-        </div>
-    </div>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MSP9M983"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div class="centered">
+      <video id="video" controls poster="https://static.showroom-live.com/image/room/cover/73f495d564945090f4af7338a42ce09ffa12d35fbfa8ce35c856220bcf96c5f3_m.png?v=1711114163"></video>
+      <div class="controls-wrapper">
+          <select id="quality"></select>
+          <button id="contactMe" onclick="contactMeFunction()">
+              <i class="fa fa-info-circle" aria-hidden="true"></i>
+          </button>
+      </div>
+  </div>
   <script src="player.js"></script>
 </body>
 </html>
