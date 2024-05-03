@@ -9,7 +9,18 @@ function playM3u8(url){
       hls.attachMedia(video);
       hls.on(Hls.Events.MANIFEST_PARSED,function() {
         video.play();
+        // Populate quality selector
+        hls.levels.forEach((level, index) => {
+            var option = document.createElement('option');
+            option.value = index;
+            option.innerText = level.height + 'p'; // Display resolution as label
+            qualitySelector.appendChild(option);
+        });
       });
+      // Change quality when selected
+      qualitySelector.addEventListener('change', function() {
+        hls.currentLevel = parseInt(qualitySelector.value);
+    });
       document.title = originalTitle;
     }
 	else if (video.canPlayType('application/vnd.apple.mpegurl')) {
@@ -21,44 +32,3 @@ function playM3u8(url){
 		document.title = originalTitle;
   	}
 }
-
-function playPause() {
-    video.paused?video.play():video.pause();
-}
-
-function volumeUp() {
-    if(video.volume <= 0.9) video.volume+=0.1;
-}
-
-function volumeDown() {
-    if(video.volume >= 0.1) video.volume-=0.1;
-}
-
-function seekRight() {
-    video.currentTime+=5;
-}
-
-function seekLeft() {
-    video.currentTime-=5;
-}
-
-function vidFullscreen() {
-    if (video.requestFullscreen) {
-      video.requestFullscreen();
-  } else if (video.mozRequestFullScreen) {
-      video.mozRequestFullScreen();
-  } else if (video.webkitRequestFullscreen) {
-      video.webkitRequestFullscreen();
-    }
-}
-
-playM3u8(window.location.href.split("#")[1])
-$(window).on('load', function () {
-    $('#video').on('click', function(){this.paused?this.play():this.pause();});
-    Mousetrap.bind('space', playPause);
-    Mousetrap.bind('up', volumeUp);
-    Mousetrap.bind('down', volumeDown);
-    Mousetrap.bind('right', seekRight);
-    Mousetrap.bind('left', seekLeft);
-    Mousetrap.bind('f', vidFullscreen);
-});
