@@ -21,7 +21,7 @@ function playM3u8(url){
           hls.currentLevel = parseInt(this.value);
         });
       });
-      document.title = originalTitle;
+      document.title = url;
     }
 	else if (video.canPlayType('application/vnd.apple.mpegurl')) {
 		video.src = url;
@@ -29,7 +29,7 @@ function playM3u8(url){
 		  video.play();
 		});
 		video.volume = 0.3;
-		document.title = originalTitle;
+		document.title = url;
   	}
 }
 
