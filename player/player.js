@@ -4,7 +4,7 @@ function playM3u8(url){
   if(Hls.isSupported()) {
       video.volume = 0.3;
       var hls = new Hls();
-      var m3u8Url = decodeURIComponent(url)
+      var m3u8Url = decodeURIComponent(atob(url))  // Menggunakan atob untuk mendekripsi URL
       hls.loadSource(m3u8Url);
       hls.attachMedia(video);
       hls.on(Hls.Events.MANIFEST_PARSED,function() {
